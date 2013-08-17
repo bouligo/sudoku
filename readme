@@ -1,4 +1,10 @@
 Sudoku v1
 
 -- 
-readme to come in next commit
+features :
+	* creates game with different difficulties (from easier to hardcore)
+	* can give several hints, relying on the difficulty chosen
+
+in next releases :
+	* better 'grid generator'
+	* Point counter
