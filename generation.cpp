@@ -50,9 +50,6 @@ void MainWindow::identifyCase(Case* current) {
 
 void MainWindow::generateGrid()
 {
-    //debug
-    ui->actionAutofiill->setText(QString::number(ui->actionAutofiill->text().toInt()+1));
-
     bool lignes[10][10], colonnes[10][10], carres[10][10];
     std::vector<int> possible;
     solution.clear();

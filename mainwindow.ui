@@ -2195,11 +2195,6 @@
     <string>A propos de Qt</string>
    </property>
   </action>
-  <action name="actionAutofiill">
-   <property name="text">
-    <string>Autofill</string>
-   </property>
-  </action>
   <action name="actionEffacer_grille">
    <property name="enabled">
     <bool>false</bool>

@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(),this->height());
 
     /*
      *only digits allowed
@@ -110,12 +111,14 @@ void MainWindow::on_actionDonner_un_indice_triggered()
             line->setStyleSheet("font-weight:bold;color:green;");
             line->setEnabled(false);
             hintsLeft--;
+            ui->actionDonner_un_indice->setText("Donner un indice (" + QString::number(hintsLeft) + ")");
 
             /*
              *Nombre d'indice donné max atteint ?
              */
             if(hintsLeft==0)
                 ui->actionDonner_un_indice->setEnabled(false);
+
 
             break;
         }
@@ -140,7 +143,6 @@ void MainWindow::on_actionMontrer_solution_triggered()
 void MainWindow::newGame(level currentLevel)
 {
     ui->statusBar->showMessage("Génération de la grille en cours...");
-    ui->actionAutofiill->setText("0"); // debug
     ui->actionEffacer_grille->trigger();
     this->generateGrid();
     this->hideCase(currentLevel);
@@ -154,6 +156,7 @@ void MainWindow::newGame(level currentLevel)
     heures = minutes = secondes = 0;
 
     hintsLeft = currentLevel;
+    ui->actionDonner_un_indice->setText("Donner un indice (" + QString::number(hintsLeft) + ")");
     if(currentLevel == easier)
         ui->actionDonner_un_indice->setEnabled(false);
     else
