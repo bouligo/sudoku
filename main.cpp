@@ -1,3 +1,7 @@
+/**
+ * Disclaimer & licence to write later ...
+ */
+
 #include "mainwindow.h"
 #include <QApplication>
 
@@ -13,4 +17,6 @@ int main(int argc, char *argv[])
  *Todo:
  * highscores
  * cases highlights
+ * includes to improve
+ * translations
  */

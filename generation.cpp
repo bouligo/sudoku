@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <cstdlib> //std::rand
-#include <QtGui>
+#include <QDebug>
 
 /* generates random number between 1 and max */
 int MainWindow::generateNumber(int max) { return std::rand() % max + 1; }

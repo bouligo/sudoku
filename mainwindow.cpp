@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QtGui>
+#include <QTimer>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,7 +13,6 @@ MainWindow::MainWindow(QWidget *parent) :
     /*
      *only digits allowed
      */
-    std::list<int> lineList;
     for(int i = 1; i < 82; i++) {
         QString name = QString("lineEdit_%1").arg(i);
         QLineEdit* line = this->findChild<QLineEdit*>(name);
@@ -24,7 +24,6 @@ MainWindow::MainWindow(QWidget *parent) :
      */
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateChrono()));
-    //this->setStyleSheet("background-color:white");
 }
 
 MainWindow::~MainWindow()
@@ -52,21 +51,20 @@ void MainWindow::on_actionQuitter_triggered()
 void MainWindow::on_pushButton_clicked()
 {
     /*
-     *Vérification de la grille (check.cpp)
+     *Checking grid (check.cpp)
      */
     bool won = check();
     if(won) {
         timer->stop();
         QMessageBox::information(this, tr("Aide"),
                                  tr("Victoire !<br />Encore une ? :)"));
-        //this->createDialog("Victoire !<br />Encore une ? :)");
+
         ui->actionMontrer_solution->setEnabled(false);
         ui->actionDonner_un_indice->setEnabled(false);
     }
     else
         QMessageBox::critical(this, tr("Erreur"),
                                  tr("La grille est incorrecte !"));
-    //this->createDialog("La grille est incorrecte !");
 
     colorCases();
 }
@@ -90,10 +88,9 @@ void MainWindow::on_actionEffacer_grille_triggered()
 void MainWindow::on_actionDonner_un_indice_triggered()
 {
     /*
-     *Grille remplie ?
+     *Is grid full ?
      */
     if(this->isGridFull()) {
-        //createDialog("La grille est complète ! Impossible de donner un indice !");
         QMessageBox::information(this, tr("Grille complète"),
                                  tr("La grille est complète, Impossible de donner un indice !"));
         return;
@@ -114,7 +111,7 @@ void MainWindow::on_actionDonner_un_indice_triggered()
             ui->actionDonner_un_indice->setText("Donner un indice (" + QString::number(hintsLeft) + ")");
 
             /*
-             *Nombre d'indice donné max atteint ?
+             * Is max hints number reached ?
              */
             if(hintsLeft==0)
                 ui->actionDonner_un_indice->setEnabled(false);
@@ -122,7 +119,7 @@ void MainWindow::on_actionDonner_un_indice_triggered()
 
             break;
         }
-    } while (true); // Attention à la boucle infinie
+    } while (true); // Care of this ...
 }
 
 void MainWindow::on_actionMontrer_solution_triggered()
@@ -153,7 +150,7 @@ void MainWindow::newGame(level currentLevel)
     ui->pushButton->setEnabled(true);
     ui->actionDonner_un_indice->setEnabled(true);
 
-    heures = minutes = secondes = 0;
+    hours = minutes = secondes = 0;
 
     hintsLeft = currentLevel;
     ui->actionDonner_un_indice->setText("Donner un indice (" + QString::number(hintsLeft) + ")");
@@ -199,13 +196,13 @@ void MainWindow::updateChrono()
 {
     secondes++;
     if(secondes==60) { secondes=0; minutes++; }
-    if(minutes==60) { minutes=0; heures++; }
+    if(minutes==60) { minutes=0; hours++; }
 
     QString display = "Temps écoulé: ";
 
-    if(heures<10)
+    if(hours<10)
         display = display + "0";
-    display = display + QString::number(heures) + ":";
+    display = display + QString::number(hours) + ":";
 
     if(minutes<10)
         display = display + "0";
@@ -221,7 +218,7 @@ void MainWindow::updateChrono()
 void MainWindow::colorCases()
 {
     /*
-     *mettre les cases erronées en rouge
+     * Put red in wrong cases
      */
     for(int i=1;i<82;i++) {
         std::list<QString>::iterator it;
@@ -248,7 +245,7 @@ void MainWindow::colorCases()
 void MainWindow::uncolorCases()
 {
     /*
-     *mettre style de base pour toutes les cases
+     * base style for all cases
      */
     for(int i=1;i<82;i++) {
         std::list<QString>::iterator it;

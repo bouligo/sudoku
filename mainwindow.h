@@ -55,29 +55,40 @@ private slots:
 
 private:
     void newGame(level currentLevel);
+    void generateGrid();
+
+    /*
+     *check.cpp
+     */
     bool check();
     bool check1(std::list<int> lineList);
     bool check2(std::list<int> lineList);
     bool check3(std::list<int> lineList);
     bool compare(std::list<int> cases);
-    //void createDialog(QString message);
-    void generateGrid();
+
+    /*
+     *Tools
+     */
     int generateNumber(int max);
     int generateNumber(int min, int max);
     std::vector<int> generate9RandomNumbers();
     void identifyCase(Case *current);
+    bool isGridFull();
+
+    /*
+     * graphics
+     */
     void hideCases(level currentLevel);
     void lockCases();
     void unlockCases();
     void colorCases();
     void uncolorCases();
-    bool isGridFull();
 
     Ui::MainWindow *ui;
     std::list<QString> solution;
 
     QTimer *timer;
-    int heures,minutes,secondes,hintsLeft;
+    int hours,minutes,secondes,hintsLeft;
 };
 
 #endif // MAINWINDOW_H
