@@ -40,7 +40,6 @@ void MainWindow::on_actionA_propos_triggered()
 {
     QMessageBox::question(this, tr("Aide"),
                              tr("Sudoku <b>v1.0</b> By Louis Toulet<br /><br />Pour démarrer une nouvelle partie, <br />cliquez sur fichier->nouvelle partie <br />et choisissez une difficulté."));
-    //this->createDialog("Sudoku <b>v1.0</b> By Louis Toulet<br /><br />Pour démarrer une nouvelle partie, <br />cliquez sur fichier->nouvelle partie <br />et choisissez une difficulté.");
 }
 
 void MainWindow::on_actionQuitter_triggered()
