@@ -63,8 +63,10 @@ private:
     //void createDialog(QString message);
     void generateGrid();
     int generateNumber(int max);
+    int generateNumber(int min, int max);
+    std::vector<int> generate9RandomNumbers();
     void identifyCase(Case *current);
-    void hideCase(level currentLevel);
+    void hideCases(level currentLevel);
     void lockCases();
     void unlockCases();
     void colorCases();

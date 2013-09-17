@@ -11,5 +11,6 @@ int main(int argc, char *argv[])
 
 /*
  *Todo:
- *Changer mécanisme pour masquer les cases
+ * highscores
+ * cases highlights
  */

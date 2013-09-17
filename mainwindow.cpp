@@ -145,7 +145,7 @@ void MainWindow::newGame(level currentLevel)
     ui->statusBar->showMessage("Génération de la grille en cours...");
     ui->actionEffacer_grille->trigger();
     this->generateGrid();
-    this->hideCase(currentLevel);
+    this->hideCases(currentLevel);
     this->lockCases();
     ui->statusBar->showMessage("");
     ui->actionMontrer_solution->setEnabled(true);
