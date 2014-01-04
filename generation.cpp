@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <cstdlib> //std::rand
-#include <QDebug>
 
 /* generates random number between 1 and max */
 int MainWindow::generateNumber(int max) { return std::rand() % max + 1; }
@@ -109,7 +108,7 @@ void MainWindow::generateGrid()
     }
 
 
-    if(!check()) // fail, no combinaison possible
+    if(!check()) // fail, no possible combinaison
         this->generateGrid();
 
     return;
@@ -126,17 +125,15 @@ void MainWindow::hideCases(level currentLevel)
         solution.push_back(line->text());
     }
 
-    qDebug() << "Starting game with difficulty" << currentLevel;
-
     /* --hiding--
-     * easier: 45
-     * easy: 47
+     * easier: 40
+     * easy: 44
      * medium: 49
      * hard: 52
      * harder: 54
      * hardcore: 56
      */
-    int numbersToHide[6] = {45,47,49,52,54,56};
+    int numbersToHide[6] = {40,44,49,52,54,56};
     int numbersToHideThisLoop, random;
 
     /* first round */

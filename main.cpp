@@ -1,7 +1,3 @@
-/**
- * Disclaimer & licence to write later ...
- */
-
 #include "mainwindow.h"
 #include <QApplication>
 
@@ -12,6 +8,7 @@ int main(int argc, char *argv[])
     w.show();
     return a.exec();
 }
+
 
 /*
  *Todo:
