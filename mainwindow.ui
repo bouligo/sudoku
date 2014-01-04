@@ -2163,7 +2163,6 @@
      <string>Aide</string>
     </property>
     <addaction name="actionA_propos"/>
-    <addaction name="actionA_pto"/>
    </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuAide"/>
@@ -2188,11 +2187,6 @@
   <action name="actionA_propos">
    <property name="text">
     <string>A propos</string>
-   </property>
-  </action>
-  <action name="actionA_pto">
-   <property name="text">
-    <string>A propos de Qt</string>
    </property>
   </action>
   <action name="actionEffacer_grille">

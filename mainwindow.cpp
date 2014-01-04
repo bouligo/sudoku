@@ -31,15 +31,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_actionA_pto_triggered()
-{
-    QApplication::aboutQt();
-}
-
 void MainWindow::on_actionA_propos_triggered()
 {
     QMessageBox::question(this, tr("Aide"),
-                             tr("Sudoku <b>v1.0</b> By Louis Toulet<br /><br />Pour démarrer une nouvelle partie, <br />cliquez sur fichier->nouvelle partie <br />et choisissez une difficulté."));
+                             tr("Sudoku <b>v1.0</b><br />Louis Toulet<br /><br />Pour démarrer une nouvelle partie, <br />cliquez sur fichier->nouvelle partie <br />et choisissez une difficulté."));
 }
 
 void MainWindow::on_actionQuitter_triggered()

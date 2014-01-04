@@ -25,7 +25,6 @@ public:
     ~MainWindow();
     
 private slots:
-    void on_actionA_pto_triggered();
 
     void on_actionA_propos_triggered();
 
