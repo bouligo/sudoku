@@ -34,7 +34,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionA_propos_triggered()
 {
     QMessageBox::question(this, tr("Aide"),
-                             tr("Sudoku <b>v1.0</b><br />Louis Toulet<br /><br />Pour démarrer une nouvelle partie, <br />cliquez sur fichier->nouvelle partie <br />et choisissez une difficulté."));
+                             tr("Sudoku <b>v1.0</b><br />Louis Toulet<br /><br />Pour dÃ©marrer une nouvelle partie, <br />cliquez sur fichier->nouvelle partie <br />et choisissez une difficultÃ©."));
 }
 
 void MainWindow::on_actionQuitter_triggered()
@@ -85,8 +85,8 @@ void MainWindow::on_actionDonner_un_indice_triggered()
      *Is grid full ?
      */
     if(this->isGridFull()) {
-        QMessageBox::information(this, tr("Grille complète"),
-                                 tr("La grille est complète, Impossible de donner un indice !"));
+        QMessageBox::information(this, tr("Grille complÃ¨te"),
+                                 tr("La grille est complÃ¨te, Impossible de donner un indice !"));
         return;
     }
 
@@ -133,7 +133,7 @@ void MainWindow::on_actionMontrer_solution_triggered()
 
 void MainWindow::newGame(level currentLevel)
 {
-    ui->statusBar->showMessage("Génération de la grille en cours...");
+    ui->statusBar->showMessage("GÃ©nÃ©ration de la grille en cours...");
     ui->actionEffacer_grille->trigger();
     this->generateGrid();
     this->hideCases(currentLevel);
@@ -192,7 +192,7 @@ void MainWindow::updateChrono()
     if(secondes==60) { secondes=0; minutes++; }
     if(minutes==60) { minutes=0; hours++; }
 
-    QString display = "Temps écoulé: ";
+    QString display = "Temps Ã©coulÃ©: ";
 
     if(hours<10)
         display = display + "0";
@@ -229,7 +229,7 @@ void MainWindow::colorCases()
             continue;
         }
 
-        if(line->text()==*it || solution.size()==0) // si la solution de la grille a été donnée
+        if(line->text()==*it || solution.size()==0) // si la solution de la grille a Ã©tÃ© donnÃ©e
             line->setStyleSheet("color:green;");
         else
             line->setStyleSheet("color:red;");

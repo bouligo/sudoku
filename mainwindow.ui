@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Sudoku</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/icon/icon.gif</normaloff>:/icon/icon.gif</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_18">
     <item row="0" column="0">
@@ -2263,6 +2267,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections/>
 </ui>
